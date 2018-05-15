@@ -1,0 +1,14 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "Aplicacion del workshop para BootCamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dario Velez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
