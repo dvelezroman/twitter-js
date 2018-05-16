@@ -2,8 +2,9 @@
   "name": "twitter-js",
   "version": "1.0.0",
   "description": "Aplicacion del workshop para BootCamp",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dario Velez",
