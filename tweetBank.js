@@ -2,7 +2,13 @@ const _ = require('lodash'); // lodash.js
 var data = [];
 
 function add(name, content){
-	data.push({name: name, content: content});
+  var ID = function () {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
+	data.push({name: name, content: content, id: ID()});
 }
 
 function list(){
@@ -30,7 +36,11 @@ const getFakeTweet = function() {
   return "Plataforma 5 es " + randArrayEl(awesome_adj) + "! Los profesores simplemente son " + randArrayEl(awesome_adj) + ". #P5Love #codedreams";
 };
 
+
+
 for (let i = 0; i < 10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+  module.exports.add( getFakeName(), getFakeTweet());
 }
+
+//console.log(data);
 
