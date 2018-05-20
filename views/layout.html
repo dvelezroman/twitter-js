@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Twitter JS - Plataforma 5</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
       <div class="container">
         {% block content %}Welcome to Twitter.js{% endblock %}
       </div> <!-- end container -->
-      
+
     </div>
 
     <div id="footer">
@@ -83,16 +83,16 @@
   <script>
     // Carga la librería socket.io arriba, luego conectalo al servidor.
     // Porque el servidor socket.io esta siendo corrido en el mismo servidor
-    // que tu instancia de Express, podes connect() sin ningún argumento.  
+    // que tu instancia de Express, podes connect() sin ningún argumento.
     var socket = io.connect();
     socket.on('connect', function(){
       console.log('conectado al servidor via WebSockets!');
-    }); 
+    });
     // Cuando el evento 'new_tweet' es disparado, haz algo con el tweet enviado.
-    socket.on('newTweet', function (tweet) { 
+    socket.on('newTweet', function (tweet) {
       console.log(tweet);
       alert('Actualizando... fijate en la consola...');
       // Alguna lógica para agregar el tweet al DOM
-    }); 
+    });
   </script>
 </html>

@@ -1,38 +1,41 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  
+
   <div class="page-header">
     <h1>Welcome to Twitter.js!</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-      <b>Your Name</b><br>
+      <img src="{{picture_url}}"><br>
+      <b>{{name}}</b><br>
       100 followers
     </div>
     <div class="col-md-9">
       {% if showForm %}
         <form action="/tweets/add" method="POST">
+          <input name="id" value="{{user_id}}" type="hidden" />
           <label for="name_field">Name:</label>
           <input name="name" type="text" id="name_field" value="{{name}}" />
           <label for="text_field">Text:</label>
           <input name="text" type="text" id="text_field" style="width: 350px;" />
           <input type="submit" value="Submit" />
         </form>
-      {% endif %}   
+      {% endif %}
       <!-- display tweets here -->
       {% for tweet in tweets %}
       <div class="media" style="width:100%">
-        <img class="align-self-start mr-3" src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg" alt="Generic placeholder image">
+      {% if index %}
+        <img class="align-self-start mr-3" src="{{tweet.picture_url}}" alt="{{tweet.name}}">
+      {% endif %}
         <div class="media-body">
             <a href="/users/{{tweet.name}}"><h5 class="name">{{tweet.name}}</h5></a>
-            <a href="/tweet/{{tweet.id}}"><p class="content">{{tweet.content}}</p></a>
+            <a href="/tweet/{{tweet.tweet_id}}"><p class="content">{{tweet.content}}</p></a>
         </div>
         </div>
       {% endfor %}
-      
+
     </div>
   </div>
-    
+
 {% endblock %}

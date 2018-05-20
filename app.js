@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express(); // crea una instancia de una aplicacion de express
 const nunjucks = require('nunjucks');
+
 const routes = require('./routes');
+
+var socketio = require('socket.io');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
-//app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.set('view engine', 'html'); // hace que res.render funcione con archivos html
 app.engine('html', nunjucks.render); // cuando le den archivos html a res.render, va a usar nunjucks
@@ -13,10 +16,10 @@ nunjucks.configure('views'); // apunta a nunjucks al directorio correcto para lo
 
 app.use('/', routes);
 
-var socketio = require('socket.io');
 
-var server = app.listen(3000);
 var io = socketio.listen(server);
+var server = app.listen(3000);
+
 
 
 
@@ -74,7 +77,7 @@ var io = socketio.listen(server);
 
 // app.use('/especial/subpath', function(req, res, next){
 // 	console.log('Haz llegado a un area especial...');
-	
+
 // });
 
 //app.listen(3000);
