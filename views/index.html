@@ -31,7 +31,7 @@
         <div class="media-body">
             <a href="/users/{{tweet.name}}"><h5 class="name">{{tweet.name}}</h5></a>
             <a href="/tweet/{{tweet.tweet_id}}"><p class="content">{{tweet.content}}</p></a>
-        </div>
+            <p><a href="/tweets/remove/{{tweet.tweet_id}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-remove"></span>Remove</a></p>
         </div>
       {% endfor %}
 

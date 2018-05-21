@@ -33,6 +33,16 @@ router.get('/tweet/:id', function(req, res){
 	// 	res.render('index', {tweets: list});
 	// }
 });
+router.get('/tweets/remove/:id', function(req, res) {
+	client.query('DELETE FROM tweets WHERE id=$1', [req.params.id], function (err, result) {
+		if (err) return next(err);
+		res.redirect('/');
+	});
+		//var name = req.body.name;
+    //var content = req.body.text;
+    //tweetBank.add(name, content);
+
+});
 
 router.post('/tweets/add', function(req, res) {
 	client.query('INSERT INTO tweets (user_id, content) VALUES ($1, $2)', [req.body.id, req.body.text], function (err, result) {
